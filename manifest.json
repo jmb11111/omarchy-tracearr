@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "id": "jmb11111.tracearr",
+  "name": "Tracearr",
+  "version": "0.1.0",
+  "author": "jmb11111",
+  "license": "MIT",
+  "description": "Active Plex/Jellyfin/Emby streams from Tracearr in the bar, with a popup showing who is watching what and today's totals.",
+  "kinds": [
+    "bar-widget"
+  ],
+  "entryPoints": {
+    "barWidget": "Panel.qml"
+  },
+  "barWidget": {
+    "displayName": "Tracearr",
+    "description": "Bar pill with the active stream count and a transcode indicator; click for a popup of current streams.",
+    "category": "Media",
+    "aliases": [
+      "tracearr",
+      "plex"
+    ],
+    "allowMultiple": false,
+    "defaultSection": "right",
+    "defaults": {
+      "url": "",
+      "apiKey": "",
+      "pollSeconds": 15,
+      "hideWhenIdle": false,
+      "showPosters": true,
+      "allowStop": true,
+      "stopMessage": "This stream was stopped by the server admin."
+    },
+    "schema": [
+      {
+        "key": "url",
+        "type": "string",
+        "label": "Tracearr URL",
+        "defaultValue": "",
+        "description": "Base URL, e.g. https://tracearr.example.com. Must not sit behind a login proxy."
+      },
+      {
+        "key": "apiKey",
+        "type": "string",
+        "label": "API key",
+        "defaultValue": "",
+        "description": "Public API key (trr_pub_…) from Tracearr Settings → General."
+      },
+      {
+        "key": "pollSeconds",
+        "type": "integer",
+        "label": "Refresh interval (seconds)",
+        "min": 5,
+        "max": 3600,
+        "step": 5,
+        "defaultValue": 15
+      },
+      {
+        "key": "hideWhenIdle",
+        "type": "boolean",
+        "label": "Hide when nothing is playing",
+        "defaultValue": false
+      },
+      {
+        "key": "showPosters",
+        "type": "boolean",
+        "label": "Show poster art in popup",
+        "defaultValue": true
+      },
+      {
+        "key": "allowStop",
+        "type": "boolean",
+        "label": "Show stop-stream button",
+        "defaultValue": true,
+        "description": "Adds a two-click Stop button to each stream card."
+      },
+      {
+        "key": "stopMessage",
+        "type": "string",
+        "label": "Stop message",
+        "defaultValue": "This stream was stopped by the server admin.",
+        "description": "Message the viewer sees when their stream is stopped."
+      }
+    ]
+  }
+}
