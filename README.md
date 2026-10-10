@@ -25,6 +25,14 @@ Generate the key in Tracearr under **Settings → General** (it starts with `trr
 
 > The URL must reach Tracearr's API directly. If Tracearr sits behind a forward-auth proxy (Authentik, Authelia, etc.), the widget can't log in. Use a route without forward auth, or exempt `/api/v1/public` from it. Tracearr still checks the API key.
 
+## Remove
+
+```bash
+omarchy plugin remove jmb11111.tracearr
+```
+
+This unloads the widget and deletes the plugin folder. The plugin doesn't create any other files, so nothing else needs cleaning up. If you also want to revoke the API key, delete it in Tracearr under **Settings → General**.
+
 ## Settings
 
 All settings live on the widget's entry in `~/.config/omarchy/shell.json`.
